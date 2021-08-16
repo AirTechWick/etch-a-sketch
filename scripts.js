@@ -1,5 +1,5 @@
 // GLOBALS
-const GRID_NUMBER = 32; // this number means it will make a NUM x NUM grid of squares
+const GRID_NUMBER = 64; // this number means it will make a NUM x NUM grid of squares
 
 
 function makeGrid(numberOfDivs) 
@@ -32,6 +32,35 @@ function draw()
     });
 }
 
+function reset()
+{
+    const boxNodes = document.querySelectorAll('.gridBox'); // Need to convert to array which is what Array.from() does
+
+    const boxArray = Array.from(boxNodes);
+
+    boxArray.forEach(box => {
+        box.style.backgroundColor = 'var(--main-bg-c)';
+    });
+}
+
+// Event Listener
+
+const resetButton = document.querySelector('#resetButton');
+
+resetButton.addEventListener('click',function(e){
+    reset();
+});
+
+
+
+// Function Calls
 
 makeGrid(GRID_NUMBER);
 draw();
+
+
+const slider = document.querySelector('#myRange');
+
+slider.oninput = function(e) {
+    document.querySelector('#valueOfSlider').textContent = slider.value;
+}
