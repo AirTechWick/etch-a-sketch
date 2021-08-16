@@ -1,10 +1,21 @@
 :root {
     --column-number: 1;
+    --grid-width-height: 400px;
 }
 
-.wholePage {
+body {
+    background-color:darkseagreen;
+}
+
+.gridWrapper {
     border: dashed 2px red;
-    width: 400px;
+    width: var(--grid-width-height);
+    height: var(--grid-width-height);
     display: grid;
     grid-template-columns: repeat(var(--column-number),1fr);
+}
+
+.pageWrapper {
+    display: flex;
+    justify-content: center;
 }
