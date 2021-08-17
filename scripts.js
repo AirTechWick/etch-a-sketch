@@ -1,5 +1,5 @@
 // GLOBALS
-let GRID_COLOR = "#228D2F"; // default color
+let GRID_COLOR = "#228D2F"; // default pen color
 
 function start()
 {
@@ -26,6 +26,7 @@ function makeGrid(numberOfDivs)
         div.setAttribute("class","gridBox");
 
         gridWrap.appendChild(div);
+        
     }
 
     startDrawing();
