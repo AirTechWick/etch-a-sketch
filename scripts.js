@@ -1,10 +1,14 @@
 // GLOBALS
-const GRID_NUMBER = 64; // this number means it will make a NUM x NUM grid of squares
+let GRID_NUMBER = 64; // this number means it will make a NUM x NUM grid of squares
 
 
 function makeGrid(numberOfDivs) 
 {
     const wholeDiv = document.querySelector('.gridWrapper');
+
+    console.log(wholeDiv);
+
+    //numberOfDivs = slider.value;
 
     wholeDiv.style.setProperty('--column-number', GRID_NUMBER);
 
@@ -32,7 +36,7 @@ function draw()
     });
 }
 
-function reset()
+function resetGrid()
 {
     const boxNodes = document.querySelectorAll('.gridBox'); // Need to convert to array which is what Array.from() does
 
@@ -43,14 +47,31 @@ function reset()
     });
 }
 
+function deleteGrid() 
+{
+    const gridWrap = document.querySelector('.gridWrapper'); // Need to convert to array which is what Array.from() does
+
+    gridWrap.innerHTML = "";
+}
+
+
+
 // Event Listener
 
 const resetButton = document.querySelector('#resetButton');
 
 resetButton.addEventListener('click',function(e){
-    reset();
+    resetGrid();
 });
 
+const slider = document.querySelector('#myRange');
+
+slider.oninput = function(e) {
+    document.querySelector('#valueOfSlider').textContent = slider.value;
+    resetGrid();
+    //deleteGrid();
+    makeGrid(slider.value);
+}
 
 
 // Function Calls
@@ -58,9 +79,3 @@ resetButton.addEventListener('click',function(e){
 makeGrid(GRID_NUMBER);
 draw();
 
-
-const slider = document.querySelector('#myRange');
-
-slider.oninput = function(e) {
-    document.querySelector('#valueOfSlider').textContent = slider.value;
-}
