@@ -6,23 +6,26 @@
 <meta charset="UTF-8">
 <script src="scripts.js" defer>// don't forget to defer so that the script can affect the HTML page after its done loading</script>
 <link rel="stylesheet" href="styles.css">
+<title>Etch-A-Sketch</title>
 </head>
 
 <body>
 
-<div class="header"><p>Etch-A-Sketch</p></div>
 
 <div class="options">
     <button id="resetButton" class="btn">Clear</button>
     <input autocomplete="off" type="range" min="2" max="100" value="50" class="slider" id="myRange">
-    <p id="valueOfSlider">50</p>
+    <p id="valueOfSlider">50x50</p>
+    <input type="color" id="colorPicker" value="#0000ff">
 </div>
 <div class="pageWrapper">
-
+    <img id="etchPic" src="images/pngkey.com-etch-a-sketch-png-5883884.png">
 
 
 
 </div>
+
+
 </body>
 
 </html>

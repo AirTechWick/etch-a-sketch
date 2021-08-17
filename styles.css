@@ -1,6 +1,6 @@
 :root {
     --column-number: 1;
-    --grid-width-height: 500px;
+    --grid-width-height: 420px;
     --main-bg-c: darkseagreen;
 }
 
@@ -9,11 +9,14 @@ body {
 }
 
 .gridWrapper {
-    border: solid 4px black;
     width: var(--grid-width-height);
     height: var(--grid-width-height);
     display: grid;
     grid-template-columns: repeat(var(--column-number),1fr);
+    position: fixed;
+    left: 50%;
+    transform: translate(-50.5%, 29%);
+    z-index: 2;
 }
 
 .pageWrapper {
@@ -22,7 +25,7 @@ body {
 }
 
 .options {
-    margin: 10px;
+    margin: 15px;
     display: flex;
     justify-content: center;
 }
@@ -33,4 +36,29 @@ body {
 
 .slider {
     margin-left: 30px;
+}
+
+#header {
+    display: flex;
+    justify-content: center;
+}
+
+#headTitle {
+    font-family: sans-serif;
+    font-size: 2em;
+    font-weight: lighter;
+}
+
+
+#etchPic {
+    height: 700px;
+    width: 600px;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1;
+}
+
+#colorPicker {
+    margin-left: 20px;
 }

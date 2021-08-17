@@ -77,7 +77,7 @@ resetButton.addEventListener('click',function(e){
 const slider = document.querySelector('#myRange');
 
 slider.oninput = function(e) {
-    document.querySelector('#valueOfSlider').textContent = slider.value;
+    document.querySelector('#valueOfSlider').textContent = slider.value + "x" + slider.value;
     deleteGrid();
     makeGrid(slider.value);
 }
