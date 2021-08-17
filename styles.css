@@ -28,6 +28,7 @@ body {
     margin: 15px;
     display: flex;
     justify-content: center;
+    font-family: sans-serif;
 }
 
 .btn {

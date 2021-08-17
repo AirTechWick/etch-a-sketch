@@ -1,5 +1,5 @@
 // GLOBALS
-let GRID_COLOR = "green";
+let GRID_COLOR = "#228D2F"; // default color
 
 
 function makeGrid(numberOfDivs) 
@@ -64,7 +64,20 @@ function deleteGrid()
 function start()
 {
     makeGrid(slider.value);
+    colorChangeListener();
 }
+
+
+function colorChangeListener()
+{
+    const colorPicker = document.querySelector('#colorPicker');
+
+    colorPicker.addEventListener('change', function(e){
+        GRID_COLOR = colorPicker.value;
+        console.log(colorPicker.value);
+    });
+}
+
 
 // Event Listeners
 
