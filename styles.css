@@ -63,3 +63,13 @@ body {
 #colorPicker {
     margin-left: 20px;
 }
+
+#linkToGitHub{
+    width: 35px;
+    margin-left: 95px;
+}
+
+#gitImg:hover {
+    border-radius: 20px;
+    background-color:white;
+}

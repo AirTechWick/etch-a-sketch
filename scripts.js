@@ -1,6 +1,11 @@
 // GLOBALS
 let GRID_COLOR = "#228D2F"; // default color
 
+function start()
+{
+    makeGrid(slider.value);
+    colorChangeListener();
+}
 
 function makeGrid(numberOfDivs) 
 {
@@ -61,11 +66,6 @@ function deleteGrid()
     
 }
 
-function start()
-{
-    makeGrid(slider.value);
-    colorChangeListener();
-}
 
 
 function colorChangeListener()
