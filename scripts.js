@@ -1,16 +1,18 @@
 // GLOBALS
-let GRID_NUMBER = 64; // this number means it will make a NUM x NUM grid of squares
+let GRID_COLOR = "green";
 
 
 function makeGrid(numberOfDivs) 
 {
-    const wholeDiv = document.querySelector('.gridWrapper');
+    const wholePage = document.querySelector('.pageWrapper');
 
-    console.log(wholeDiv);
+    const gridWrap = document.createElement('div');
 
-    //numberOfDivs = slider.value;
+    gridWrap.setAttribute('class', 'gridWrapper');
 
-    wholeDiv.style.setProperty('--column-number', GRID_NUMBER);
+    wholePage.appendChild(gridWrap);
+
+    gridWrap.style.setProperty('--column-number', slider.value);
 
     for(let i = 0; i < numberOfDivs*numberOfDivs; i++)
     {
@@ -18,11 +20,13 @@ function makeGrid(numberOfDivs)
 
         div.setAttribute("class","gridBox");
 
-        wholeDiv.appendChild(div);
+        gridWrap.appendChild(div);
     }
+
+    startDrawing();
 }
 
-function draw() 
+function startDrawing() 
 {
     const boxNodes = document.querySelectorAll('.gridBox'); // Need to convert to array which is what Array.from() does
 
@@ -30,7 +34,7 @@ function draw()
 
     boxArray.forEach(box => {
                 box.addEventListener("mouseover", function(e){
-                box.style.backgroundColor = "red";
+                box.style.backgroundColor = GRID_COLOR;
             }
         );
     });
@@ -49,14 +53,20 @@ function resetGrid()
 
 function deleteGrid() 
 {
-    const gridWrap = document.querySelector('.gridWrapper'); // Need to convert to array which is what Array.from() does
+    const pageWrap = document.querySelector('.pageWrapper');
 
-    gridWrap.innerHTML = "";
+    const gridWrap = document.querySelector('.gridWrapper'); // created from makeGrid() function
+
+    pageWrap.removeChild(gridWrap);
+    
 }
 
+function start()
+{
+    makeGrid(slider.value);
+}
 
-
-// Event Listener
+// Event Listeners
 
 const resetButton = document.querySelector('#resetButton');
 
@@ -68,14 +78,11 @@ const slider = document.querySelector('#myRange');
 
 slider.oninput = function(e) {
     document.querySelector('#valueOfSlider').textContent = slider.value;
-    resetGrid();
-    //deleteGrid();
+    deleteGrid();
     makeGrid(slider.value);
 }
 
 
 // Function Calls
 
-makeGrid(GRID_NUMBER);
-draw();
-
+start();
