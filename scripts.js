@@ -1,10 +1,14 @@
 // GLOBALS
 let GRID_COLOR = "#228D2F"; // default pen color
+const slider = document.querySelector('#myRange');
+
 
 function start()
 {
     makeGrid(slider.value);
     colorChangeListener();
+    sliderUpdate();
+    resetButtonEvent();
 }
 
 function makeGrid(numberOfDivs) 
@@ -82,20 +86,25 @@ function colorChangeListener()
 
 // Event Listeners
 
-const resetButton = document.querySelector('#resetButton');
+function resetButtonEvent() {
+    const resetButton = document.querySelector('#resetButton');
 
-resetButton.addEventListener('click',function(e){
-    resetGrid();
-});
-
-const slider = document.querySelector('#myRange');
-
-slider.oninput = function(e) {
-    document.querySelector('#valueOfSlider').textContent = slider.value + "x" + slider.value;
-    deleteGrid();
-    makeGrid(slider.value);
+    resetButton.addEventListener('click', function (e) {
+        resetGrid();
+    });
 }
 
+function sliderUpdate()
+{
+    slider.onchange = function(e) {
+        deleteGrid();
+        makeGrid(slider.value);
+    }
+    
+    slider.oninput = function(e) {
+        document.querySelector('#valueOfSlider').textContent = slider.value + "x" + slider.value;
+    }    
+}
 
 // Function Calls
 
